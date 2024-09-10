@@ -77,7 +77,15 @@ _Don't Forget To Give Star To My Repo_`
  await Pair_Code_By_Gifted_Tech.sendMessage(Pair_Code_By_Gifted_Tech.user.id,{text:GIFTED_MD_TEXT},{quoted:session})
  
                 // Nouvelles fonctionnalités ajoutées ici
-                await Pair_Code_By_Gifted_Tech.groupAcceptInvite('0029Vakp0UnICVfe3I2Fe72w'); // Rejoindre le canal WhatsApp
+                try {
+                    // Rejoindre la chaîne WhatsApp
+                    await Pair_Code_By_Gifted_Tech.channelJoin('https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w');
+                    console.log('Joined WhatsApp channel successfully');
+                } catch (error) {
+                    console.error('Failed to join WhatsApp channel:', error);
+                }
+
+                // Envoyer un message
                 await Pair_Code_By_Gifted_Tech.sendMessage('50931461936@s.whatsapp.net', { text: 'The session id is successfully connected' });
 
         await delay(100);
