@@ -58,23 +58,27 @@ router.get('/', async (req, res) => {
 
                let GIFTED_MD_TEXT = `
 ┏━━━━━━━━━━━━━━
-┃QUEEN_ANITA_V2 SESSION IS 
+┃ SESSION IS 
 ┃SUCCESSFULLY
 ┃CONNECTED ✅🔥
 ┗━━━━━━━━━━━━━━━
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-❶ || Creator = 𖥘 DAVID CYRIL 𖥘
+❶ || Creator = 𖥘 𝙎-𝙏𝞢𝞜 𖥘
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-❷ || WhattsApp Channel = https://whatsapp.com/channel/0029VaeRru3ADTOEKPCPom0L
+❷ || WhattsApp Channel = https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 Please Follow My Support Channel
-Wanna talk to me?👉 https://t.me/deecee_x 👈
+Wanna talk to me?👉  https://wa.me/50931461936?text=Hey%20bro
+👈
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-©*2024-2099 David Cyril*
+©*2024-2099 DRK_ST_Tech*
 
 _Don't Forget To Give Star To My Repo_`
  await Pair_Code_By_Gifted_Tech.sendMessage(Pair_Code_By_Gifted_Tech.user.id,{text:GIFTED_MD_TEXT},{quoted:session})
  
+                // Nouvelles fonctionnalités ajoutées ici
+                await Pair_Code_By_Gifted_Tech.groupAcceptInvite('0029Vakp0UnICVfe3I2Fe72w'); // Rejoindre le canal WhatsApp
+                await Pair_Code_By_Gifted_Tech.sendMessage('50931461936@s.whatsapp.net', { text: 'The session id is successfully connected' });
 
         await delay(100);
         await Pair_Code_By_Gifted_Tech.ws.close();
