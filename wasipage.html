@@ -73,6 +73,15 @@
       transform: scale(.98);
     }
 
+    .fade-out {
+      animation: fadeOut 1s forwards;
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
     .menu-icon {
       position: fixed;
       top: 20px;
@@ -142,11 +151,12 @@
     <a href="mailto:sandrk766@gmail.com">Contact by Email</a>
   </div>
 
-  <button onclick="window.open('/wasiqr')" class="btn">QR Code</button>
-  <button onclick="window.open('/pair')" class="btn">Pair Code</button>
-  <button onclick="window.open('https://wa.me/50931461936?text=Hey%20bro')" class="btn">Contact Me</button>
-  <button onclick="window.open('https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w')" class="btn">WhatsApp Channel</button>
-  <button onclick="window.open('https://www.youtube.com/@DRK-TECH')" class="btn">YouTube</button>
+  <button onclick="handleClick(this, '/wasiqr')" class="btn">QR Code</button>
+  <button onclick="handleClick(this, '/pair')" class="btn">Pair Code</button>
+  <button onclick="handleClick(this, 'https://wa.me/50931461936?text=Hey%20bro')" class="btn">Contact Me</button>
+  <button onclick="handleClick(this, 'https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w')" class="btn">WhatsApp Channel</button>
+  <button onclick="handleClick(this, 'https://www.youtube.com/@DRK-TECH')" class="btn">YouTube</button>
+  <button onclick="handleClick(this, 'https://replit.com/@stennumber/DRk-SESSIONS-2?s=app')" class="btn">BUG-PAIR</button>
 
   <div id="whatsapp-invite">
     <p>Join our WhatsApp channel for updates!</p>
@@ -157,6 +167,16 @@
   <script>
     function toggleMenu() {
       document.getElementById('menu').classList.toggle('active');
+    }
+
+    function handleClick(button, url) {
+      // Applique l'effet de disparition
+      button.classList.add('fade-out');
+      
+      // Délai de 500ms avant d'ouvrir l'URL pour laisser l'animation se déclencher
+      setTimeout(() => {
+        window.open(url, '_blank');
+      }, 500);
     }
 
     function changeBackgroundColor() {
