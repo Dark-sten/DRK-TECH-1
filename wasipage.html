@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>DAVID_CYRIL</title>
+  <title>DRK-ST-TECH</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -10,9 +10,10 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
       margin: 0;
-      background-color: black;
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      transition: background-color 10s;
     }
 
     .btn {
@@ -30,7 +31,6 @@
       z-index: 1;
       font-weight: 300;
       font-size: 17px;
-      font-family: 'Roboto', 'Segoe UI', sans-serif;
       text-transform: uppercase;
       color: var(--color);
       margin-bottom: 24px;
@@ -72,17 +72,122 @@
       filter: brightness(.7);
       transform: scale(.98);
     }
+
+    .menu-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      transition: 0.3s;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .menu.active {
+      right: 0;
+    }
+
+    .menu-close {
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      text-align: right;
+    }
+
+    .menu a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 10px 0;
+      font-size: 18px;
+    }
+
+    #whatsapp-invite {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      display: none;
+    }
+
+    #countdown {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
-  <button onclick="window.open(`/wasiqr`)" class="btn">QR Code</button>
-  <button onclick="window.open(`/pair`)" class="btn">Pair Code</button>
-  <button onclick="window.open(`https://github.com/deeceexxx/Queen_Anita-V2`)" class="btn">Bot Repo</button>
-  <button onclick="window.open(`https://t.me/deecee_x`)" class="btn">Contact Me</button>
-  <button onclick="window.open(`https://whatsapp.com/channel/0029VaeRru3ADTOEKPCPom0L`)" class="btn">Wa Channel</button>
-  <button onclick="window.open(`https://www.youtube.com/@DavidCyril_TECH`)" class="btn">Youtube</button>
-  
+  <div class="menu" id="menu">
+    <div class="menu-close" onclick="toggleMenu()">✕</div>
+    <a href="https://www.youtube.com/@DRK-TECH" target="_blank">YouTube Tutorials</a>
+    <a href="mailto:sandrk766@gmail.com">Contact by Email</a>
+  </div>
 
+  <button onclick="window.open('/wasiqr')" class="btn">QR Code</button>
+  <button onclick="window.open('/pair')" class="btn">Pair Code</button>
+  <button onclick="window.open('https://wa.me/50931461936?text=Hey%20bro')" class="btn">Contact Me</button>
+  <button onclick="window.open('https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w')" class="btn">WhatsApp Channel</button>
+  <button onclick="window.open('https://www.youtube.com/@DRK-TECH')" class="btn">YouTube</button>
+
+  <div id="whatsapp-invite">
+    <p>Join our WhatsApp channel for updates!</p>
+    <button onclick="joinWhatsApp()" class="btn">Join Now</button>
+    <div id="countdown"></div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('active');
+    }
+
+    function changeBackgroundColor() {
+      const colors = ['#000000', '#1a1a1a', '#2c3e50', '#34495e', '#2980b9', '#8e44ad'];
+      let index = 0;
+      setInterval(() => {
+        document.body.style.backgroundColor = colors[index];
+        index = (index + 1) % colors.length;
+      }, 10000);
+    }
+
+    function showWhatsAppInvite() {
+      document.getElementById('whatsapp-invite').style.display = 'block';
+      let countdown = 5;
+      const countdownElement = document.getElementById('countdown');
+      const countdownInterval = setInterval(() => {
+        countdownElement.textContent = countdown;
+        countdown--;
+        if (countdown < 0) {
+          clearInterval(countdownInterval);
+          document.getElementById('whatsapp-invite').style.display = 'none';
+        }
+      }, 1000);
+    }
+
+    function joinWhatsApp() {
+      window.open('https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w', '_blank');
+    }
+
+    changeBackgroundColor();
+    setTimeout(showWhatsAppInvite, 10000);
+  </script>
 </body>
-</html> 
+</html>
