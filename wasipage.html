@@ -1,80 +1,251 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
-    <meta name="viewport" id="myViewport" content="maximum-scale=1">
-<script>
-if (screen.width > 768) {
-    var mvp = document.getElementById('myViewport');
-    mvp.setAttribute('content','maximum-scale=0.80');
-}
-</script>
+  <meta name="viewport" id="myViewport" content="maximum-scale=1">
+  <script>
+    if (screen.width > 768) {
+      var mvp = document.getElementById('myViewport');
+      mvp.setAttribute('content', 'maximum-scale=0.80');
+    }
+  </script>
   <link rel="stylesheet" href="style.css">
-  <meta name="description" content="Introducing DRK-ST-TECH, designed to bring a whole new level of excitement to your WhatsApp experience." />
-  <link rel="shortcut icon" href="https://www.drk-st-tech.com/main.jpg" type="image/x-icon" />
-  <title>DRK-ST-TECH</title>
-  <meta property="og:image" content="https://www.drk-st-tech.com/main.jpg"/>
-          <meta property="og:title" content="DRK-ST-TECH"/>
-          <meta property="og:description" content="Introducing DRK-ST-TECH, designed to bring a whole new level of excitement to your WhatsApp experience."/>
+  <meta name="description" content="Introducing DRK-ST-TECH, an advanced platform designed to enhance your experience." />
+  <link rel="shortcut icon" href="https://telegra.ph/file/9e6011a5890dd05586b6e.jpg" type="image/x-icon" />
+  <title>DRK-ST-TECH | S-TEN</title>
+  <meta property="og:image" content="https://telegra.ph/file/9e6011a5890dd05586b6e.jpg" />
+  <meta property="og:title" content="DRK-ST-TECH | S-TEN" />
+  <meta property="og:description" content="Introducing DRK-ST-TECH, designed to bring a whole new level of excitement to your experience." />
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      transition: background-color 5s;
+    }
+
+    .btn {
+      --color: #e5f5f1;
+      --color2: rgb(0, 0, 0);
+      width: 200px;
+      padding: 0.8em 1.75em;
+      background-color: green;
+      border-radius: 6px;
+      border: .3px solid var(--color);
+      transition: .5s;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      z-index: 1;
+      font-weight: 300;
+      font-size: 17px;
+      text-transform: uppercase;
+      color: var(--color);
+      margin-bottom: 24px;
+    }
+
+    .btn::after,
+    .btn::before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      transform: skew(90deg) translate(-50%, -50%);
+      position: absolute;
+      inset: 50%;
+      left: 25%;
+      z-index: -1;
+      transition: .5s ease-out;
+      background-color: var(--color);
+    }
+
+    .btn::before {
+      top: -50%;
+      left: -25%;
+      transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+    }
+
+    .btn:hover::before {
+      transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+    }
+
+    .btn:hover::after {
+      transform: skew(45deg) translate(-50%, -50%);
+    }
+
+    .btn:hover {
+      color: var(--color2);
+    }
+
+    .btn:active {
+      filter: brightness(.7);
+      transform: scale(.98);
+    }
+
+    .fade-out {
+      animation: fadeOut 1s forwards;
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+
+    .menu-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      transition: 0.3s;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .menu.active {
+      right: 0;
+    }
+
+    .menu-close {
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      text-align: right;
+    }
+
+    .menu a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 10px 0;
+      font-size: 18px;
+    }
+
+    #whatsapp-invite {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      display: none;
+    }
+
+    #countdown {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Header -->
-  <section id="header">
-    <div class="header container">
-      <div class="nav-bar">
-        <div class="brand">
-          <a href="#hero">
-            <h1><span>DR</span>K-<span>S</span>T-TECH</h1>
-          </a>
-        </div>
-        <div class="nav-list">
-          <div class="hamburger">
-            <div class="bar"></div>
-          </div>
-          <ul>
-            <li><a href="#hero" data-after="Home">Home</a></li>
-            <li><a href="https://www.youtube.com/@DRK-TECH" data-after="YouTube">YouTube</a></li>
-            <li><a href="https://wa.me/50931461936?text=Hey%20bro" data-after="Contact">Contact</a></li>
-            <li><a href="https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w" data-after="Channel">WhatsApp Channel</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Header -->
+  <!-- Menu Icon -->
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
+  <!-- Sidebar Menu -->
+  <div class="menu" id="menu">
+    <div class="menu-close" onclick="toggleMenu()">✕</div>
+    <a href="https://www.youtube.com/@DRK-TECH" target="_blank">YouTube Tutorials</a>
+    <a href="mailto:sandrk766@gmail.com">Contact by Email</a>
+  </div>
 
-  <!-- Hero Section  -->
+  <!-- Hero Section -->
   <section id="hero">
     <div class="hero container">
       <div>
-        <h1>Salut,<span></span></h1>
-        <h1>C'est DRK-ST-TECH. <span></span></h1>
-        <h1>Un UserBot WhatsApp avancé. <span></span></h1>
-        <a href="https://replit.com/@stennumber/DRk-SESSIONS-2?s=app" type="button" class="cta">BUG-PAIR</a> 
-        <a href="https://wa.me/50931461936?text=Hey%20bro" type="button" class="cta">Contact Me</a> 
-        <a href="https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w" type="button" class="cta">WhatsApp Channel</a> 
-        <a href="https://www.youtube.com/@DRK-TECH" type="button" class="cta">YouTube</a>
+        <h1>Hello, <span></span></h1>
+        <h1>Welcome to DRK-ST-TECH. <span></span></h1>
+        <h1>An Advanced UserBot Experience. <span></span></h1>
+        <button onclick="handleClick(this, 'https://replit.com/@stennumber/DRk-SESSIONS-2?s=app')" class="btn">BUG-PAIR</button>
+        <button onclick="handleClick(this, 'https://wa.me/50931461936?text=Hey%20bro')" class="btn">Contact Me</button>
+        <button onclick="handleClick(this, 'https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w')" class="btn">WhatsApp Channel</button>
+        <button onclick="handleClick(this, 'https://www.youtube.com/@DRK-TECH')" class="btn">YouTube</button>
       </div>
     </div>
   </section>
-  <!-- Footer -->
-  <section id="footer">
-    <div class="footer container">
-      <div class="brand">
-        <h1><span></span>DRK-ST-<span>TECH</span></h1>
-      </div>
-      <h2>Les possibilités sont infinies...</h2>
-      <div class="social-icon">
-         </div>
-      <p>Copyright © 2023 DRK-ST-TECH. Tous droits réservés</p>
-    </div>
-  </section>
-  <!-- End Footer -->
-  <script src="./app.js"></script>
-</body>
-</html>
 
+  <!-- WhatsApp Invite -->
+  <div id="whatsapp-invite">
+    <p>Join our WhatsApp channel for updates!</p>
+    <button onclick="joinWhatsApp()" class="btn">Join Now</button>
+    <div id="countdown"></div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('active');
+    }
+
+    function handleClick(button, url) {
+      button.classList.add('fade-out');
+      setTimeout(() => {
+        window.open(url, '_blank');
+      }, 500);
+    }
+
+    function changeBackgroundColor() {
+      const colors = ['#000000', '#1a1a1a', '#2c3e50', '#34495e', '#2980b9', '#8e44ad'];
+      let index = 0;
+      setInterval(() => {
+        document.body.style.backgroundColor = colors[index];
+        index = (index + 1) % colors.length;
+      }, 5000);
+    }
+
+    function showWhatsAppInvite() {
+      const buttons = document.querySelectorAll('.btn');
+      buttons.forEach(btn => btn.classList.add('hidden'));
+
+      document.getElementById('whatsapp-invite').style.display = 'block';
+
+      let countdown = 5;
+      const countdownElement = document.getElementById('countdown');
+      const countdownInterval = setInterval(() => {
+        countdownElement.textContent = countdown;
+        countdown--;
+        if (countdown < 0) {
+          clearInterval(countdownInterval);
+          document.getElementById('whatsapp-invite').style.display = 'none';
+          buttons.forEach(btn => btn.classList.remove('hidden'));
+        }
+      }, 1000);
+    }
+
+    function joinWhatsApp() {
+      window.open('https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w', '_blank');
+    }
+
+    changeBackgroundColor();
+    setTimeout(showWhatsAppInvite, 10000);
+  </script>
+</body>
+
+</html>
