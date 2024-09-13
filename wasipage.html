@@ -184,6 +184,7 @@
         <h1>Hello, <span></span></h1>
         <h1>Welcome to DRK-ST-TECH. <span></span></h1>
         <h1>An Advanced UserBot Experience. <span></span></h1>
+        <!-- Buttons from the second code -->
         <button onclick="handleClick(this, 'https://replit.com/@stennumber/DRk-SESSIONS-2?s=app')" class="btn">BUG-PAIR</button>
         <button onclick="handleClick(this, 'https://wa.me/50931461936?text=Hey%20bro')" class="btn">Contact Me</button>
         <button onclick="handleClick(this, 'https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w')" class="btn">WhatsApp Channel</button>
@@ -191,13 +192,6 @@
       </div>
     </div>
   </section>
-
-  <!-- WhatsApp Invite -->
-  <div id="whatsapp-invite">
-    <p>Join our WhatsApp channel for updates!</p>
-    <button onclick="joinWhatsApp()" class="btn">Join Now</button>
-    <div id="countdown"></div>
-  </div>
 
   <script>
     function toggleMenu() {
@@ -220,31 +214,7 @@
       }, 5000);
     }
 
-    function showWhatsAppInvite() {
-      const buttons = document.querySelectorAll('.btn');
-      buttons.forEach(btn => btn.classList.add('hidden'));
-
-      document.getElementById('whatsapp-invite').style.display = 'block';
-
-      let countdown = 5;
-      const countdownElement = document.getElementById('countdown');
-      const countdownInterval = setInterval(() => {
-        countdownElement.textContent = countdown;
-        countdown--;
-        if (countdown < 0) {
-          clearInterval(countdownInterval);
-          document.getElementById('whatsapp-invite').style.display = 'none';
-          buttons.forEach(btn => btn.classList.remove('hidden'));
-        }
-      }, 1000);
-    }
-
-    function joinWhatsApp() {
-      window.open('https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w', '_blank');
-    }
-
     changeBackgroundColor();
-    setTimeout(showWhatsAppInvite, 10000);
   </script>
 </body>
 
