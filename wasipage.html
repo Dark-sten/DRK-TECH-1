@@ -1,22 +1,10 @@
+ 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" id="myViewport" content="maximum-scale=1">
-  <script>
-    if (screen.width > 768) {
-      var mvp = document.getElementById('myViewport');
-      mvp.setAttribute('content', 'maximum-scale=0.80');
-    }
-  </script>
-  <link rel="stylesheet" href="style.css">
-  <meta name="description" content="Introducing DRK-ST-TECH, an advanced platform designed to enhance your experience." />
-  <link rel="shortcut icon" href="https://telegra.ph/file/9e6011a5890dd05586b6e.jpg" type="image/x-icon" />
-  <title>DRK-ST-TECH | S-TEN</title>
-  <meta property="og:image" content="https://telegra.ph/file/9e6011a5890dd05586b6e.jpg" />
-  <meta property="og:title" content="DRK-ST-TECH | S-TEN" />
-  <meta property="og:description" content="Introducing DRK-ST-TECH, designed to bring a whole new level of excitement to your experience." />
+  <title>DRK-ST-TECH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       display: flex;
@@ -49,8 +37,7 @@
       margin-bottom: 24px;
     }
 
-    .btn::after,
-    .btn::before {
+    .btn::after, .btn::before {
       content: '';
       display: block;
       height: 100%;
@@ -92,13 +79,8 @@
     }
 
     @keyframes fadeOut {
-      from {
-        opacity: 1;
-      }
-
-      to {
-        opacity: 0;
-      }
+      from { opacity: 1; }
+      to { opacity: 0; }
     }
 
     .menu-icon {
@@ -165,33 +147,26 @@
     }
   </style>
 </head>
-
 <body>
-  <!-- Menu Icon -->
   <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
-  <!-- Sidebar Menu -->
   <div class="menu" id="menu">
     <div class="menu-close" onclick="toggleMenu()">✕</div>
     <a href="https://www.youtube.com/@DRK-TECH" target="_blank">YouTube Tutorials</a>
     <a href="mailto:sandrk766@gmail.com">Contact by Email</a>
   </div>
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <div class="hero container">
-      <div>
-        <h1>Hello, <span></span></h1>
-        <h1>Welcome to DRK-ST-TECH. <span></span></h1>
-        <h1>An Advanced UserBot Experience. <span></span></h1>
-        <!-- Buttons from the second code -->
-        <button onclick="handleClick(this, 'https://replit.com/@stennumber/DRk-SESSIONS-2?s=app')" class="btn">BUG-PAIR</button>
-        <button onclick="handleClick(this, 'https://wa.me/50931461936?text=Hey%20bro')" class="btn">Contact Me</button>
-        <button onclick="handleClick(this, 'https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w')" class="btn">WhatsApp Channel</button>
-        <button onclick="handleClick(this, 'https://www.youtube.com/@DRK-TECH')" class="btn">YouTube</button>
-      </div>
-    </div>
-  </section>
+  <button onclick="handleClick(this, 'https://replit.com/@stennumber/DRk-SESSIONS-2?s=app')" class="btn">BUG-PAIR</button>
+  <button onclick="handleClick(this, 'https://wa.me/50931461936?text=Hey%20bro')" class="btn">Contact Me</button>
+  <button onclick="handleClick(this, 'https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w')" class="btn">WhatsApp Channel</button>
+  <button onclick="handleClick(this, 'https://www.youtube.com/@DRK-TECH')" class="btn">YouTube</button>
+  
+
+  <div id="whatsapp-invite">
+    <p>Join our WhatsApp channel for updates!</p>
+    <button onclick="joinWhatsApp()" class="btn">Join Now</button>
+    <div id="countdown"></div>
+  </div>
 
   <script>
     function toggleMenu() {
@@ -199,7 +174,10 @@
     }
 
     function handleClick(button, url) {
+      // Applique l'effet de disparition
       button.classList.add('fade-out');
+      
+      // Délai de 500ms avant d'ouvrir l'URL pour laisser l'animation se déclencher
       setTimeout(() => {
         window.open(url, '_blank');
       }, 500);
@@ -214,8 +192,34 @@
       }, 5000);
     }
 
+    function showWhatsAppInvite() {
+      // Masquer tous les boutons
+      const buttons = document.querySelectorAll('.btn');
+      buttons.forEach(btn => btn.classList.add('hidden'));
+      
+      // Afficher l'invitation WhatsApp
+      document.getElementById('whatsapp-invite').style.display = 'block';
+
+      let countdown = 5;
+      const countdownElement = document.getElementById('countdown');
+      const countdownInterval = setInterval(() => {
+        countdownElement.textContent = countdown;
+        countdown--;
+        if (countdown < 0) {
+          clearInterval(countdownInterval);
+          // Cacher l'invitation WhatsApp et faire réapparaître les boutons
+          document.getElementById('whatsapp-invite').style.display = 'none';
+          buttons.forEach(btn => btn.classList.remove('hidden'));
+        }
+      }, 1000);
+    }
+
+    function joinWhatsApp() {
+      window.open('https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w', '_blank');
+    }
+
     changeBackgroundColor();
+    setTimeout(showWhatsAppInvite, 10000); // Afficher l'invitation après 10 secondes
   </script>
 </body>
-
 </html>
