@@ -19,12 +19,12 @@
         
         #bgVideo {
             position: fixed;
-            right: 0;
-            bottom: 0;
+            top: 0;
+            left: 0;
             min-width: 100%;
             min-height: 100%;
-            width: auto;
-            height: auto;
+            width: 100%;
+            height: 100%;
             z-index: -1;
             object-fit: cover;
         }
@@ -73,12 +73,13 @@
         .btn-container {
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 15px;
             margin-top: 20px;
         }
         
         .btn {
-            padding: 10px 20px;
+            padding: 12px 24px;
             font-size: 1em;
             color: #ffffff;
             background-color: #FF0000;
@@ -87,8 +88,9 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 200px;
         }
-        
+
         .btn:hover {
             background-color: #d40000;
         }
@@ -174,14 +176,19 @@
         <p>Votre guide ultime pour les bots WhatsApp</p>
         
         <div class="btn-container">
-            <button class="btn" onclick="showSubButtons('drk'); hideKlausMD()">DRK-ST-BUG</button>
-            <button class="btn" id="klaus-btn" onclick="alert('Klaus-MD bientôt disponible !')">Klaus-MD</button>
+            <button class="btn" onclick="showSection('drk')">DRK-ST-BUG</button>
+            <button class="btn" id="klaus-btn" onclick="showSection('klaus')">Klaus-MD</button>
         </div>
         
         <div id="drk-sub-buttons" style="display: none;">
             <button class="btn" onclick="window.open('https://replit.com/@stennumber/DRk-SESSIONS-2?s=app', '_blank')">BUG-PAIR</button>
             <button class="btn" onclick="window.open('https://youtu.be/AZg7UMMy6q8?si=4BH--HgU2ogN6RJP', '_blank')">Déployer sur GitHub</button>
             <button class="btn" onclick="window.open('https://youtu.be/4b1HNuaQx54?si=rE2szwkhwsuhszsQ', '_blank')">Déployer dans Codespace</button>
+        </div>
+
+        <div id="klaus-sub-buttons" style="display: none;">
+            <button class="btn" onclick="alert('Klaus-MD fonctionnalité bientôt disponible')">Fonctionnalité 1</button>
+            <button class="btn" onclick="alert('Klaus-MD fonctionnalité bientôt disponible')">Fonctionnalité 2</button>
         </div>
     </div>
 
@@ -196,14 +203,17 @@
     </footer>
 
     <script>
-        function showSubButtons(type) {
-            const subButtons = document.getElementById(`${type}-sub-buttons`);
-            subButtons.style.display = subButtons.style.display === 'none' ? 'block' : 'none';
-        }
-
-        function hideKlausMD() {
-            const klausBtn = document.getElementById('klaus-btn');
-            klausBtn.style.display = 'none';
+        function showSection(type) {
+            const drkButtons = document.getElementById('drk-sub-buttons');
+            const klausButtons = document.getElementById('klaus-sub-buttons');
+            
+            if (type === 'drk') {
+                drkButtons.style.display = 'block';
+                klausButtons.style.display = 'none';
+            } else {
+                drkButtons.style.display = 'none';
+                klausButtons.style.display = 'block';
+            }
         }
 
         setTimeout(function() {
