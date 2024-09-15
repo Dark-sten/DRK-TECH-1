@@ -2,94 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>DRK-ST-TECH</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DRK-ST-TECH</title>
   <style>
     body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      font-family: 'Courier New', monospace;
+      color: white;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      margin: 0;
-      font-family: 'Roboto', 'Segoe UI', sans-serif;
-      transition: background-color 5s;
-      background-color: #1a1a1a;
+      overflow: hidden;
+    }
+
+    /* Typewriter animation */
+    .typewriter h1 {
+      border-right: 2px solid white;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(30, end), blink 0.5s step-end infinite alternate;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      from { border-color: transparent; }
+      to { border-color: white; }
     }
 
     .btn {
-      --color: #e5f5f1;
-      --color2: #000;
       width: 200px;
-      padding: 0.8em 1.75em;
-      background-color: green;
-      border-radius: 6px;
-      border: 0.3px solid var(--color);
-      transition: 0.5s;
-      position: relative;
-      overflow: hidden;
+      padding: 10px;
+      margin: 10px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
-      z-index: 1;
-      font-weight: 300;
-      font-size: 17px;
-      text-transform: uppercase;
-      color: var(--color);
-      margin-bottom: 24px;
+      font-size: 16px;
+      transition: background-color 0.5s;
     }
 
     .btn:hover {
-      background-color: #444;
-      color: var(--color2);
-      transform: scale(1.1);
+      background-color: blue;
     }
 
-    .fade-out {
-      animation: fadeOut 1s forwards;
-    }
-
-    @keyframes fadeOut {
-      from { opacity: 1; }
-      to { opacity: 0; }
-    }
-
-    .menu-icon {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      font-size: 30px;
-      cursor: pointer;
-      color: white;
-    }
-
-    .menu {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      transition: 0.3s;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    .menu.active {
-      right: 0;
-    }
-
-    .menu-close {
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-      text-align: right;
-    }
-
-    .menu a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      padding: 10px 0;
-      font-size: 18px;
+    .hidden {
+      display: none;
     }
 
     #whatsapp-invite {
@@ -105,104 +72,58 @@
       display: none;
     }
 
-    #countdown {
-      font-size: 24px;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    footer {
-      margin-top: 50px;
-      color: white;
-      font-size: 14px;
+    video {
+      width: 80%;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to 𝐃𝐑𝐊_𝐒𝐓_𝐓𝐞𝐜𝐡</h1>
-  <p>Your useful guide to WhatsApp bots</p>
 
-  <div class="menu-icon" onclick="toggleMenu()">☰</div>
-
-  <div class="menu" id="menu">
-    <div class="menu-close" onclick="toggleMenu()">✕</div>
-    <a href="https://www.youtube.com/@DRK-TECH" target="_blank">YouTube Tutorials</a>
-    <a href="mailto:sandrk766@gmail.com">Contact by Email</a>
-    <a href="https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w" target="_blank">WhatsApp Support</a>
-    <a href="https://github.com/DRK-S-TEN/DRK_ST_BUG1?tab=readme-ov-file" target="_blank">DRK-ST-BUG Repo</a>
+  <div class="typewriter">
+    <h1>Welcome to DRK_ST_Tech - Your useful guide to WhatsApp bots</h1>
   </div>
 
-  <button onclick="showBugPair()" class="btn">DRK-ST-BUG</button>
-  <button id="btnKlausMd" onclick="showKlausMd()" class="btn hidden">Klaus-md (Coming Soon)</button>
+  <button id="drk-st-bug" class="btn">DRK-ST-BUG</button>
+  <button id="bug-pair" class="btn hidden">BUG-PAIR</button>
+  <button id="video-tutorial" class="btn hidden">Video Tutorial</button>
 
   <div id="whatsapp-invite">
     <p>Join our WhatsApp channel for updates!</p>
     <button onclick="joinWhatsApp()" class="btn">Join Now</button>
-    <div id="countdown"></div>
   </div>
 
-  <footer>
-    @ 2024 𝙎-𝙏𝞢𝞜 - Everything must be reserved
-  </footer>
+  <video id="background-video" autoplay loop muted>
+    <source src="https://i.imgur.com/bTBSFRZ.mp4" type="video/mp4">
+  </video>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('menu').classList.toggle('active');
-    }
+    // Handle button visibility and actions
+    document.getElementById('drk-st-bug').addEventListener('click', function() {
+      document.getElementById('bug-pair').classList.remove('hidden');
+      document.getElementById('video-tutorial').classList.remove('hidden');
+      document.getElementById('drk-st-bug').classList.add('hidden');
+    });
 
-    function handleClick(button, url) {
-      button.classList.add('fade-out');
-      setTimeout(() => {
-        window.open(url, '_blank');
-      }, 500);
-    }
+    document.getElementById('bug-pair').addEventListener('click', function() {
+      window.open('https://replit.com/@stennumber/DRk-SESSIONS-2?s=app', '_blank');
+    });
 
-    function showBugPair() {
-      document.getElementById('btnKlausMd').classList.remove('hidden');
+    document.getElementById('video-tutorial').addEventListener('click', function() {
       window.open('https://youtu.be/AZg7UMMy6q8?si=4BH--HgU2ogN6RJP', '_blank');
-    }
+    });
 
-    function showKlausMd() {
-      alert('Klaus-md functionality coming soon!');
-    }
-
-    function changeBackgroundColor() {
-      const colors = ['#1a1a1a', '#2c3e50', '#34495e', '#2980b9', '#8e44ad'];
-      let index = 0;
-      setInterval(() => {
-        document.body.style.backgroundColor = colors[index];
-        index = (index + 1) % colors.length;
-      }, 5000);
-    }
-
-    function showWhatsAppInvite() {
-      const buttons = document.querySelectorAll('.btn');
-      buttons.forEach(btn => btn.classList.add('hidden'));
+    // WhatsApp invite after delay
+    setTimeout(function() {
       document.getElementById('whatsapp-invite').style.display = 'block';
-
-      let countdown = 5;
-      const countdownElement = document.getElementById('countdown');
-      const countdownInterval = setInterval(() => {
-        countdownElement.textContent = countdown;
-        countdown--;
-        if (countdown < 0) {
-          clearInterval(countdownInterval);
-          document.getElementById('whatsapp-invite').style.display = 'none';
-          buttons.forEach(btn => btn.classList.remove('hidden'));
-        }
-      }, 1000);
-    }
+      document.getElementById('bug-pair').classList.add('hidden');
+      document.getElementById('video-tutorial').classList.add('hidden');
+    }, 10000);
 
     function joinWhatsApp() {
       window.open('https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w', '_blank');
     }
-
-    changeBackgroundColor();
-    setTimeout(showWhatsAppInvite, 10000);
   </script>
+
 </body>
 </html>
