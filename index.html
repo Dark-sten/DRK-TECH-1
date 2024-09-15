@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝐃𝐑𝐊_𝐒𝐓_𝐓𝐞𝐜𝐡</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+    <div id="loader" class="loader">
+        <img src="https://i.imgur.com/qdzPVga.png" alt="Loading..." width="100">
+    </div>
+
+    <div class="content" style="display:none;">
+        <header>
+            <img src="https://i.imgur.com/qdzPVga.png" alt="Logo" width="80" class="logo">
+            <h1>Welcome to 𝐃𝐑𝐊_𝐒𝐓_𝐓𝐞𝐜𝐡</h1>
+            <p>Innovating WhatsApp Bot Development and Deployment Technologies</p>
+        </header>
+
+        <main>
+            <section class="buttons">
+                <button class="btn" onclick="toggleSubButtons('drk-st-bug')">DRK-ST-BUG</button>
+                <div id="drk-st-bug-sub" class="sub-buttons">
+                    <button class="sub-btn" onclick="window.open('https://replit.com/@stennumber/DRk-SESSIONS-2?s=app', '_blank')">BUG-PAIR</button>
+                    <button class="sub-btn" onclick="window.open('https://youtu.be/AZg7UMMy6q8?si=4BH--HgU2ogN6RJP', '_blank')">Deploy On GITHUB</button>
+                    <button class="sub-btn" onclick="window.open('https://youtu.be/4b1HNuaQx54?si=rE2szwkhwsuhszsQ', '_blank')">Deploy in Codespace</button>
+                </div>
+
+                <button class="btn" onclick="toggleSubButtons('klaus-md')">Klaus-MD</button>
+                <div id="klaus-md-sub" class="sub-buttons">
+                    <button class="sub-btn">Not Available 1</button>
+                    <button class="sub-btn">Not Available 2</button>
+                </div>
+            </section>
+
+            <section id="bot-demo" class="bot-demo">
+                <h2>Live Bot Demo</h2>
+                <div id="chat-container"></div>
+                <input type="text" id="user-input" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
+            </section>
+
+            <section id="performance-metrics" class="performance-metrics">
+                <h2>Real-time Performance Metrics</h2>
+                <canvas id="performanceChart"></canvas>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 𝐃𝐑𝐊_𝐒𝐓_𝐓𝐞𝐜𝐡. All rights reserved. Owner: 𝙎-𝙏𝞢𝞜</p>
+            <p>YouTube: <a href="https://www.youtube.com/@DRK-TECH" target="_blank">@DRK-TECH</a> | 
+               Email: <a href="mailto:sandrk766@gmail.com">sandrk766@gmail.com</a> | 
+               WhatsApp: <a href="https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w" target="_blank">Channel</a></p>
+        </footer>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
+    
