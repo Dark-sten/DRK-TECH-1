@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>𝐃𝐑𝐊_𝐒𝐓_𝐓𝐞𝐜𝐡 - Your WhatsApp Bot Guide</title>
+    <title>𝐃𝐑𝐊_𝐒𝐓_𝐓𝐞𝐜𝐡 - Guide des bots WhatsApp</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
         
@@ -17,7 +17,7 @@
             overflow: hidden;
         }
         
-        .video-background {
+        #bgVideo {
             position: fixed;
             right: 0;
             bottom: 0;
@@ -25,8 +25,8 @@
             min-height: 100%;
             width: auto;
             height: auto;
-            z-index: -1000;
-            background-size: cover;
+            z-index: -1;
+            object-fit: cover;
         }
         
         .container {
@@ -41,8 +41,8 @@
         }
         
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            font-size: 1.8em;
+            margin-bottom: 15px;
         }
         
         .typewriter {
@@ -77,7 +77,7 @@
             padding: 12px 24px;
             font-size: 1em;
             color: #ffffff;
-            background-color: #4CAF50;
+            background-color: #FF0000;
             border: none;
             border-radius: 25px;
             cursor: pointer;
@@ -85,10 +85,8 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
-        .btn:hover {
-            background-color: #45a049;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        .btn:active {
+            background-color: #0000FF;
         }
         
         .menu {
@@ -111,7 +109,7 @@
         }
         
         .menu a:hover {
-            color: #4CAF50;
+            color: #FF0000;
         }
         
         footer {
@@ -122,10 +120,22 @@
             font-size: 0.8em;
             opacity: 0.7;
         }
+        
+        #whatsappInvite {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 2000;
+        }
     </style>
 </head>
 <body>
-    <video autoplay muted loop class="video-background">
+    <video autoplay muted loop id="bgVideo">
         <source src="https://i.imgur.com/bTBSFRZ.mp4" type="video/mp4">
     </video>
 
@@ -136,22 +146,29 @@
     </div>
 
     <div class="container">
-        <h1 class="typewriter">Welcome to 𝐃𝐑𝐊_𝐒𝐓_𝐓𝐞𝐜𝐡</h1>
-        <p>Your ultimate guide to WhatsApp bots</p>
+        <h1 class="typewriter">Bienvenue sur 𝐃𝐑𝐊_𝐒𝐓_𝐓𝐞𝐜𝐡</h1>
+        <p>Votre guide ultime pour les bots WhatsApp</p>
         
         <div class="btn-container">
             <button class="btn" onclick="showSubButtons('drk')">DRK-ST-BUG</button>
-            <button class="btn" onclick="alert('Klaus-MD coming soon!')">Klaus-MD</button>
+            <button class="btn" onclick="alert('Klaus-MD bientôt disponible !')">Klaus-MD</button>
         </div>
         
         <div id="drk-sub-buttons" style="display: none;">
-            <button class="btn" onclick="window.open('https://youtu.be/AZg7UMMy6q8?si=4BH--HgU2ogN6RJP', '_blank')">Deploy On GitHub</button>
-            <button class="btn" onclick="window.open('https://youtu.be/4b1HNuaQx54?si=rE2szwkhwsuhszsQ', '_blank')">Deploy in Codespace</button>
+            <button class="btn" onclick="window.open('https://replit.com/@stennumber/DRk-SESSIONS-2?s=app', '_blank')">BUG-PAIR</button>
+            <button class="btn" onclick="window.open('https://youtu.be/AZg7UMMy6q8?si=4BH--HgU2ogN6RJP', '_blank')">Déployer sur GitHub</button>
+            <button class="btn" onclick="window.open('https://youtu.be/4b1HNuaQx54?si=rE2szwkhwsuhszsQ', '_blank')">Déployer dans Codespace</button>
         </div>
     </div>
 
+    <div id="whatsappInvite">
+        <h2>Rejoignez notre chaîne WhatsApp !</h2>
+        <p>Cliquez <a href="https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w" target="_blank">ici</a> pour nous rejoindre.</p>
+        <button onclick="closeInvite()">Fermer</button>
+    </div>
+
     <footer>
-        © 2024 𝙎-𝙏𝞢𝞜 All rights reserved
+        © 2024 𝙎-𝙏𝞢𝞜 Tous droits réservés
     </footer>
 
     <script>
@@ -163,6 +180,21 @@
                 subButtons.style.display = 'none';
             }
         }
+
+        setTimeout(function() {
+            document.getElementById('whatsappInvite').style.display = 'block';
+        }, 10000);
+
+        function closeInvite() {
+            document.getElementById('whatsappInvite').style.display = 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('bgVideo');
+            video.play().catch(error => {
+                console.error("La lecture automatique de la vidéo a échoué:", error);
+            });
+        });
     </script>
 </body>
 </html>
