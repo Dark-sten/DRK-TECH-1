@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>𝐃𝐑𝐊_𝐒𝐓_𝐓𝐞𝐜𝐡</title>
+    <title>DRK_ST_Tech</title>
     <style>
         * {
             margin: 0;
@@ -13,17 +13,18 @@
 
         body, html {
             height: 100%;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             color: white;
             text-align: center;
             background-image: url('https://i.imgur.com/9Q0kJ5X.jpeg');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
+            overflow-x: hidden;
         }
 
         .logo {
-            width: 80px;
+            width: 100px;
             margin: 20px auto;
             animation: fadeIn 2s ease-in-out;
         }
@@ -37,19 +38,29 @@
             padding: 20px;
             max-width: 800px;
             margin: 0 auto;
+            animation: slideIn 2s ease-in-out;
         }
 
-        .welcome-text {
-            font-size: 18px;
-            margin: 20px 0;
-            animation: fadeIn 2s ease-in-out;
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .welcome-text h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: textGlow 2s infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+            to { text-shadow: 0 0 20px rgba(255, 255, 255, 1); }
         }
 
         .btn-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
             margin: 20px 0;
         }
 
@@ -61,13 +72,15 @@
             font-size: 16px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .btn:hover {
             background-color: white;
             color: black;
             transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
         }
 
         .sub-buttons {
@@ -76,127 +89,68 @@
         }
 
         .sub-btn {
-            padding: 8px 16px;
+            padding: 10px 20px;
             margin: 5px;
-            background-color: #f39c12;
+            background-color: #ff7e5f;
             border: none;
             color: white;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            border-radius: 20px;
         }
 
         .sub-btn:hover {
-            background-color: #e67e22;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .feature {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 15px;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .feature:hover {
-            transform: translateY(-5px);
+            background-color: #feb47b;
         }
 
         .footer {
             margin-top: 50px;
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.7);
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #ff7e5f;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #feb47b;
         }
 
         @media (max-width: 768px) {
-            .btn {
-                font-size: 14px;
-                padding: 10px 20px;
-            }
-            .welcome-text {
-                font-size: 16px;
+            .welcome-text h1 {
+                font-size: 2.5rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="logo">
-        <img src="https://i.imgur.com/qdzPVga.png" alt="Logo" width="80">
+        <img src="https://i.imgur.com/qdzPVga.png" alt="Logo" width="100">
     </div>
 
     <div class="content">
         <div class="welcome-text">
-            <h1>Welcome to 𝐃𝐑𝐊_𝐒𝐓_𝐓𝐞𝐜𝐡</h1>
+            <h1>Welcome to DRK_ST_Tech</h1>
             <p>Innovating WhatsApp Bot Development and Deployment Technologies</p>
         </div>
 
         <div class="btn-container">
             <button class="btn" onclick="toggleSubButtons('drk-st-bug')">DRK-ST-BUG</button>
             <div id="drk-st-bug-sub" class="sub-buttons">
-                <p>Bonjour Bugs ! Ce bot est principalement utilisé pour faire des farces en faisant planter le WhatsApp de ses amis ! Déployez le bot et profitez-en.</p>
+                <p>This bot is mainly used for pranks by crashing your friend's WhatsApp! Deploy and enjoy.</p>
                 <button class="sub-btn" onclick="window.open('https://replit.com/@stennumber/DRk-SESSIONS-2?s=app', '_blank')">BUG-PAIR</button>
                 <button class="sub-btn" onclick="window.open('https://youtu.be/AZg7UMMy6q8?si=4BH--HgU2ogN6RJP', '_blank')">Deploy On GITHUB</button>
                 <button class="sub-btn" onclick="window.open('https://youtu.be/4b1HNuaQx54?si=rE2szwkhwsuhszsQ', '_blank')">Deploy in Codespace</button>
-            </div>
-
-            <button class="btn" onclick="toggleSubButtons('klaus-md')">Klaus-MD</button>
-            <div id="klaus-md-sub" class="sub-buttons">
-                <button class="sub-btn">Not Available 1</button>
-                <button class="sub-btn">Not Available 2</button>
-            </div>
-        </div>
-
-        <div class="features">
-            <div class="feature">
-                <h3>Real-Time Error Tracking</h3>
-                <p>Get live updates on bot errors and resolve them instantly.</p>
-            </div>
-            <div class="feature">
-                <h3>Code Reusability</h3>
-                <p>Utilize modular code for quick bot redeployment across different platforms.</p>
-            </div>
-            <div class="feature">
-                <h3>Multi-Platform Integration</h3>
-                <p>Deploy your WhatsApp bots on various platforms with minimal changes.</p>
-            </div>
-            <div class="feature">
-                <h3>Automatic Bot Scaling</h3>
-                <p>Your bots will scale automatically based on demand, ensuring consistent performance.</p>
-            </div>
-            <div class="feature">
-                <h3>Voice Command Support</h3>
-                <p>Enable voice-activated commands to enhance user interaction with your bots.</p>
-            </div>
-            <div class="feature">
-                <h3>API Integration</h3>
-                <p>Seamlessly connect your bot with external APIs for advanced functionality.</p>
-            </div>
-            <div class="feature">
-                <h3>Custom User Workflows</h3>
-                <p>Create and manage custom workflows to guide bot users through specific actions.</p>
-            </div>
-            <div class="feature">
-                <h3>Advanced Data Handling</h3>
-                <p>Manage and process large sets of user data with enhanced bot capabilities.</p>
-            </div>
-            <div class="feature">
-                <h3>Bot Security Updates</h3>
-                <p>Receive regular updates to protect your bots from the latest security threats.</p>
-            </div>
-            <div class="feature">
-                <h3>Interactive User Dashboard</h3>
-                <p>Monitor your bot's activity with a real-time interactive dashboard.</p>
             </div>
         </div>
     </div>
 
     <div class="footer">
-        <p>&copy; 2024 𝐃𝐑𝐊_𝐒𝐓_𝐓𝐞𝐜𝐡. All rights reserved. Owner: 𝙎-𝙏𝞢𝞜</p>
+        <p>&copy; 2024 DRK_ST_Tech. All rights reserved. Owner: S-T</p>
         <p>YouTube: <a href="https://www.youtube.com/@DRK-TECH" target="_blank">@DRK-TECH</a> | 
            Email: <a href="mailto:sandrk766@gmail.com">sandrk766@gmail.com</a> | 
            WhatsApp: <a href="https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w" target="_blank">Channel</a></p>
