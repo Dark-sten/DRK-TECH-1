@@ -41,10 +41,14 @@
         }
         
         h1 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
+            font-size: 1.4em;
+            margin-bottom: 10px;
         }
         
+        p {
+            font-size: 1em;
+        }
+
         .typewriter {
             overflow: hidden;
             border-right: .15em solid orange;
@@ -74,7 +78,7 @@
         }
         
         .btn {
-            padding: 12px 24px;
+            padding: 10px 20px;
             font-size: 1em;
             color: #ffffff;
             background-color: #FF0000;
@@ -85,6 +89,10 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
+        .btn:hover {
+            background-color: #d40000;
+        }
+
         .btn:active {
             background-color: #0000FF;
         }
@@ -132,6 +140,22 @@
             border-radius: 10px;
             z-index: 2000;
         }
+
+        /* Responsive styles for mobile screens */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 1.2em;
+            }
+            
+            p {
+                font-size: 0.9em;
+            }
+            
+            .btn {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -150,8 +174,8 @@
         <p>Votre guide ultime pour les bots WhatsApp</p>
         
         <div class="btn-container">
-            <button class="btn" onclick="showSubButtons('drk')">DRK-ST-BUG</button>
-            <button class="btn" onclick="alert('Klaus-MD bientôt disponible !')">Klaus-MD</button>
+            <button class="btn" onclick="showSubButtons('drk'); hideKlausMD()">DRK-ST-BUG</button>
+            <button class="btn" id="klaus-btn" onclick="alert('Klaus-MD bientôt disponible !')">Klaus-MD</button>
         </div>
         
         <div id="drk-sub-buttons" style="display: none;">
@@ -174,11 +198,12 @@
     <script>
         function showSubButtons(type) {
             const subButtons = document.getElementById(`${type}-sub-buttons`);
-            if (subButtons.style.display === 'none') {
-                subButtons.style.display = 'block';
-            } else {
-                subButtons.style.display = 'none';
-            }
+            subButtons.style.display = subButtons.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function hideKlausMD() {
+            const klausBtn = document.getElementById('klaus-btn');
+            klausBtn.style.display = 'none';
         }
 
         setTimeout(function() {
