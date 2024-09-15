@@ -1,129 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DRK-ST-TECH</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: black;
-      font-family: 'Courier New', monospace;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      overflow: hidden;
-    }
-
-    /* Typewriter animation */
-    .typewriter h1 {
-      border-right: 2px solid white;
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      animation: typing 4s steps(30, end), blink 0.5s step-end infinite alternate;
-    }
-
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-
-    @keyframes blink {
-      from { border-color: transparent; }
-      to { border-color: white; }
-    }
-
-    .btn {
-      width: 200px;
-      padding: 10px;
-      margin: 10px;
-      background-color: red;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background-color 0.5s;
-    }
-
-    .btn:hover {
-      background-color: blue;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    #whatsapp-invite {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgba(0, 0, 0, 0.8);
-      color: white;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      display: none;
-    }
-
-    video {
-      width: 80%;
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝐃𝐑𝐊_𝐒𝐓_𝐓𝐞𝐜𝐡 - Your WhatsApp Bot Guide</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1000;
+            background-size: cover;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid orange;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: orange; }
+        }
+        
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            font-size: 1em;
+            color: #ffffff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        
+        .menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        
+        .menu a {
+            display: inline-block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 5px 10px;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .menu a:hover {
+            color: #4CAF50;
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
+    </style>
 </head>
 <body>
+    <video autoplay muted loop class="video-background">
+        <source src="https://i.imgur.com/bTBSFRZ.mp4" type="video/mp4">
+    </video>
 
-  <div class="typewriter">
-    <h1>Welcome to DRK_ST_Tech - Your useful guide to WhatsApp bots</h1>
-  </div>
+    <div class="menu">
+        <a href="https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w" target="_blank">WhatsApp</a>
+        <a href="https://www.youtube.com/@DRK-TECH" target="_blank">YouTube</a>
+        <a href="https://github.com/DRK-S-TEN/DRK_ST_BUG1?tab=readme-ov-file" target="_blank">GitHub</a>
+    </div>
 
-  <button id="drk-st-bug" class="btn">DRK-ST-BUG</button>
-  <button id="bug-pair" class="btn hidden">BUG-PAIR</button>
-  <button id="video-tutorial" class="btn hidden">Video Tutorial</button>
+    <div class="container">
+        <h1 class="typewriter">Welcome to 𝐃𝐑𝐊_𝐒𝐓_𝐓𝐞𝐜𝐡</h1>
+        <p>Your ultimate guide to WhatsApp bots</p>
+        
+        <div class="btn-container">
+            <button class="btn" onclick="showSubButtons('drk')">DRK-ST-BUG</button>
+            <button class="btn" onclick="alert('Klaus-MD coming soon!')">Klaus-MD</button>
+        </div>
+        
+        <div id="drk-sub-buttons" style="display: none;">
+            <button class="btn" onclick="window.open('https://youtu.be/AZg7UMMy6q8?si=4BH--HgU2ogN6RJP', '_blank')">Deploy On GitHub</button>
+            <button class="btn" onclick="window.open('https://youtu.be/4b1HNuaQx54?si=rE2szwkhwsuhszsQ', '_blank')">Deploy in Codespace</button>
+        </div>
+    </div>
 
-  <div id="whatsapp-invite">
-    <p>Join our WhatsApp channel for updates!</p>
-    <button onclick="joinWhatsApp()" class="btn">Join Now</button>
-  </div>
+    <footer>
+        © 2024 𝙎-𝙏𝞢𝞜 All rights reserved
+    </footer>
 
-  <video id="background-video" autoplay loop muted>
-    <source src="https://i.imgur.com/bTBSFRZ.mp4" type="video/mp4">
-  </video>
-
-  <script>
-    // Handle button visibility and actions
-    document.getElementById('drk-st-bug').addEventListener('click', function() {
-      document.getElementById('bug-pair').classList.remove('hidden');
-      document.getElementById('video-tutorial').classList.remove('hidden');
-      document.getElementById('drk-st-bug').classList.add('hidden');
-    });
-
-    document.getElementById('bug-pair').addEventListener('click', function() {
-      window.open('https://replit.com/@stennumber/DRk-SESSIONS-2?s=app', '_blank');
-    });
-
-    document.getElementById('video-tutorial').addEventListener('click', function() {
-      window.open('https://youtu.be/AZg7UMMy6q8?si=4BH--HgU2ogN6RJP', '_blank');
-    });
-
-    // WhatsApp invite after delay
-    setTimeout(function() {
-      document.getElementById('whatsapp-invite').style.display = 'block';
-      document.getElementById('bug-pair').classList.add('hidden');
-      document.getElementById('video-tutorial').classList.add('hidden');
-    }, 10000);
-
-    function joinWhatsApp() {
-      window.open('https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w', '_blank');
-    }
-  </script>
-
+    <script>
+        function showSubButtons(type) {
+            const subButtons = document.getElementById(`${type}-sub-buttons`);
+            if (subButtons.style.display === 'none') {
+                subButtons.style.display = 'block';
+            } else {
+                subButtons.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
