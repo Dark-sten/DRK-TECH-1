@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Improved Web Page</title>
+    <title>𝐃𝐑𝐊_𝐒𝐓_𝐓𝐞𝐜𝐡</title>
     <style>
         /* Global Styles */
         * {
@@ -27,10 +27,17 @@
             background-position: center;
         }
 
-        /* Centered Logo */
+        /* Centered Logo with animation */
         .logo {
-            width: 150px;
+            width: 100px;
             margin: 50px auto;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Keyframes for fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Sticky Navbar */
@@ -78,20 +85,71 @@
             transform: scale(1.1);
         }
 
+        /* Welcome text with fade-in animation */
+        .welcome-text {
+            font-size: 28px;
+            margin: 20px 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+
         /* Shadows on buttons */
         .btn {
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
 
-        /* Section Styles */
-        section {
-            padding: 50px 20px;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+        /* Contact form */
+        .contact-form {
+            margin: 50px auto;
+            max-width: 500px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
         }
 
-        section.active {
-            opacity: 1;
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #fff;
+            background-color: transparent;
+            color: white;
+        }
+
+        .contact-form input[type="submit"] {
+            background-color: #f39c12;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: #e67e22;
+        }
+
+        /* Social media links */
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: white;
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .footer p {
+            color: white;
         }
 
         /* Responsive Design */
@@ -108,9 +166,14 @@
     </style>
 </head>
 <body>
-    <!-- Logo Centered -->
+    <!-- Centered Logo -->
     <div class="logo">
-        <img src="https://i.imgur.com/6xnvbn3.png" alt="Logo" width="150">
+        <img src="https://i.imgur.com/qdzPVga.png" alt="Logo" width="100">
+    </div>
+
+    <!-- Welcome text -->
+    <div class="welcome-text">
+        <h1>Welcome to Our Site</h1>
     </div>
 
     <!-- Sticky Navigation Bar -->
@@ -121,43 +184,36 @@
         <a href="#contact">Contact</a>
     </div>
 
-    <!-- Main Content -->
+    <!-- Buttons with links to original pages -->
     <div class="btn-container">
-        <button class="btn" onclick="showSection('drk')">DRK-ST-BUG</button>
-        <button class="btn" onclick="showSection('klaus')">Klaus-MD</button>
+        <button class="btn" onclick="window.open('https://drk-st-url.com', '_blank')">DRK-ST-BUG</button>
+        <button class="btn" onclick="window.open('https://klaus-md-url.com', '_blank')">Klaus-MD</button>
     </div>
 
-    <!-- DRK Section -->
-    <section id="drk-sub-buttons" class="active">
-        <h2>DRK-ST-BUG Section</h2>
-        <p>Welcome to the DRK-ST-BUG section. Click the button below to open the page.</p>
-        <button class="btn" onclick="window.open('https://drk-st-url.com', '_blank')">Go to DRK-ST-BUG</button>
-    </section>
+    <!-- Contact Form -->
+    <div class="contact-form">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send Message">
+        </form>
+    </div>
 
-    <!-- Klaus Section -->
-    <section id="klaus-sub-buttons" style="display:none;">
-        <h2>Klaus-MD Section</h2>
-        <p>Welcome to the Klaus-MD section. Click the button below to open the page.</p>
-        <button class="btn" onclick="window.open('https://klaus-url.com', '_blank')">Go to Klaus-MD</button>
-    </section>
+    <!-- Social Media Icons -->
+    <div class="social-icons">
+        <a href="https://www.youtube.com/@DRK-TECH"><i class="fa fa-youtube"></i></a>
+        <a href="https://wa.me/50931461936?text=Hey%20𝙎-𝙏𝞢𝞜%20j'ai%20besoin%20de%20ton%20aide"><i class="fa fa-WhatsApp"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+    </div>
 
-    <script>
-        function showSection(section) {
-            const drkSection = document.getElementById('drk-sub-buttons');
-            const klausSection = document.getElementById('klaus-sub-buttons');
-            
-            if (section === 'drk') {
-                drkSection.style.display = 'block';
-                klausSection.style.display = 'none';
-                drkSection.classList.add('active');
-                klausSection.classList.remove('active');
-            } else if (section === 'klaus') {
-                klausSection.style.display = 'block';
-                drkSection.style.display = 'none';
-                klausSection.classList.add('active');
-                drkSection.classList.remove('active');
-            }
-        }
-    </script>
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 𝙎-𝙏𝞢𝞜. All rights reserved.</p>
+    </div>
+
+    <!-- Add Font Awesome for social media icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>
