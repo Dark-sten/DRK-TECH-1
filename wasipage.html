@@ -4,173 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DARK TECH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Styles d'origine */
+        :root {
+            --primary-color: #ff7e5f;
+            --secondary-color: #feb47b;
+            --text-color: #ffffff;
+            --bg-color: #000000;
+            --transition-speed: 0.3s;
         }
 
-        body, html {
-            height: 100%;
-            font-family: 'Poppins', sans-serif;
-            color: white;
-            text-align: center;
-            background-image: url('https://i.imgur.com/9Q0kJ5X.jpeg');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-            overflow-x: hidden;
-        }
-
-        .logo {
-            width: 100px;
-            margin: 20px auto;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .content {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            animation: slideIn 2s ease-in-out;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-100px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .welcome-text h1 {
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: textGlow 2s infinite alternate;
-        }
-
-        @keyframes textGlow {
-            from { text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
-            to { text-shadow: 0 0 20px rgba(255, 255, 255, 1); }
-        }
-
-        .btn-container {
-            margin: 20px 0;
-        }
-
-        .btn {
-            padding: 12px 24px;
-            border: 2px solid white;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            margin: 10px 0;
-            width: 100%;
-        }
-
-        .btn:hover {
-            background-color: white;
-            color: black;
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
-        }
-
-        .sub-buttons {
+        /* Styles supplémentaires */
+        #klaus-md-description {
             display: none;
+            text-align: left;
+            margin-top: 20px;
+            color: #fff;
+        }
+
+        .btn.menu-btn {
+            padding: 10px 25px;
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            font-size: 16px;
             margin-top: 10px;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
         }
 
-        .sub-btn {
-            padding: 10px 20px;
-            margin: 5px;
-            background-color: #ff7e5f;
+        #music-section {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            display: none;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .music-btn {
+            background-color: var(--primary-color);
+            color: var(--bg-color);
             border: none;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            border-radius: 20px;
+            padding: 10px;
+            border-radius: 5px;
         }
 
-        .sub-btn:hover {
-            background-color: #feb47b;
+        .music-btn:hover {
+            background-color: var(--secondary-color);
         }
 
-        .footer {
-            margin-top: 50px;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            font-size: 14px;
-        }
-
-        .footer a {
-            color: #ff7e5f;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: #feb47b;
-        }
-
-        #popup {
+        .donate-popup {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.9);
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 20px;
+            padding: 30px;
+            color: white;
             border-radius: 10px;
-            z-index: 1000;
+            text-align: center;
+        }
+
+        .donate-popup button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            border: none;
+            border-radius: 5px;
+        }
+
+        .donate-popup.fade-out {
             display: none;
-        }
-
-        .warning {
-            color: #ff0000;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .welcome-text h1 {
-                font-size: 2rem;
-            }
-        }
-
-        /* Keyframes for Welcome to DARK TECH transition */
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-
-        @keyframes fadeInDarkTech {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .dark-tech-text {
-            display: none;
-            font-size: 3rem;
-            color: #ff7e5f;
-            animation: fadeInDarkTech 2s ease forwards;
         }
     </style>
 </head>
 <body>
+    <div id="particles-js"></div>
+    <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+
+    <!-- Contenu principal -->
     <div class="logo">
-        <img src="https://i.imgur.com/qdzPVga.png" alt="Logo" width="100">
+        <img src="https://i.imgur.com/qdzPVga.png" alt="Logo" width="120">
     </div>
 
     <div class="content">
@@ -180,27 +97,60 @@
             <p>Innovating WhatsApp Bot Development and Deployment Technologies</p>
         </div>
 
+        <div id="countdown"></div>
+
         <div class="btn-container">
+            <!-- DRK-ST-BUG Bouton -->
             <button class="btn" onclick="toggleSubButtons('drk-st-bug')">DRK-ST-BUG</button>
             <div id="drk-st-bug-sub" class="sub-buttons">
+                <!-- Contenu DRK-ST-BUG -->
                 <p class="warning">⚠️ Ultra-dangerous WhatsApp bot. Use with caution, may cause significant damage!</p>
                 <h3>Get Your Session</h3>
-                <button class="sub-btn" onclick="window.open('https://replit.com/@stennumber/DRk-SESSIONS-2?s=app', '_blank')">PARING-CODE</button>
+                <button class="sub-btn" onclick="window.open('https://replit.com/@stennumber/DRk-SESSIONS-2?s=app', '_blank')">BUG-PAIR</button>
                 <h3>Start Deploying</h3>
                 <button class="sub-btn" onclick="window.open('https://youtu.be/AZg7UMMy6q8?si=4BH--HgU2ogN6RJP', '_blank')">Deploy On GITHUB</button>
                 <button class="sub-btn" onclick="window.open('https://youtu.be/4b1HNuaQx54?si=rE2szwkhwsuhszsQ', '_blank')">Deploy in Codespace</button>
             </div>
 
-            <button class="btn" onclick="toggleSubButtons('dark-ichi')">DARK-ICHI</button>
-            <div id="dark-ichi-sub" class="sub-buttons">
-                <p>An ultra-powerful WhatsApp bot that assists you in all areas. Use with caution.</p>
-                <h3>Get Your Session</h3>
-               
-                <h3>Deployment Methods</h3>
-                <button class="sub-btn" onclick="window.open('#', '_blank')">Deployment Method 1</button>
-                <button class="sub-btn" onclick="window.open('#', '_blank')">Deployment Method 2</button>
+            <!-- Klaus-MD Bouton -->
+            <button class="btn" onclick="toggleSubButtons('klaus-md')">❝𝐊𝐋𝐀𝐔𝐒-𝐌𝐃❞</button>
+            <div id="klaus-md-description">
+                <p><strong>❝𝐊𝐋𝐀𝐔𝐒-𝐌𝐃❞ - Le Bot WhatsApp Multi-Appareil Révolutionnaire 🚀</strong></p>
+                <p>Découvrez <strong>❝𝐊𝐋𝐀𝐔𝐒-𝐌𝐃❞</strong>, un bot WhatsApp de nouvelle génération...</p>
+                <h3>Fonctionnalités Clés :</h3>
+                <ul>
+                    <li>Multi-Appareils</li>
+                    <li>Commandes Personnalisées</li>
+                    <li>Modération Avancée</li>
+                    <li>Gestion des Médias</li>
+                </ul>
+                <h3>Deploy Klaus-MD :</h3>
+                <button class="sub-btn" onclick="window.open('https://replit.com/@darksten4/DRk-SESSIONS-2?s=app', '_blank')">Paring Code</button>
+                <button class="sub-btn" onclick="window.open('#', '_blank')">Deploy On RENDER</button>
             </div>
+
+            <!-- Menu vers le profil -->
+            <button class="btn menu-btn" onclick="window.open('https://i.imgur.com/ouNJFTT.png', '_blank')">Menu</button>
         </div>
+
+        <!-- Social Icons -->
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+
+    <!-- Section Musique et popup Don -->
+    <div id="music-section">
+        <button class="music-btn" onclick="playMusic()">🎵 Play Music</button>
+        <audio id="background-music" src="https://i.imgur.com/foRZQaI.mp4" preload="auto"></audio>
+    </div>
+
+    <div class="donate-popup" id="donate-popup">
+        <p>Merci d'avoir écouté ! Soutenez-nous :</p>
+        <button onclick="window.open('https://paypal.me/donate', '_blank')">Faire un don</button>
     </div>
 
     <div class="footer">
@@ -210,39 +160,45 @@
            WhatsApp: <a href="https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w" target="_blank">Channel</a></p>
     </div>
 
-    <div id="popup">
-        <h3>Join our WhatsApp channel!</h3>
-        <p>Stay updated with the latest news and get support.</p>
-        <button class="sub-btn" onclick="window.open('https://whatsapp.com/channel/0029Vakp0UnICVfe3I2Fe72w', '_blank')">Join the channel</button>
-    </div>
-
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
+        /* Particles.js */
+        particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('particles.js loaded - callback');
+        });
+
         function toggleSubButtons(id) {
-            var subButtons = document.getElementById(id + '-sub');
-            var allSubButtons = document.querySelectorAll('.sub-buttons');
+            var subButtons = document.getElementById(id + '-description');
+            var allSubButtons = document.querySelectorAll('.sub-buttons, #klaus-md-description');
             
             allSubButtons.forEach(function(el) {
                 if (el !== subButtons) el.style.display = 'none';
             });
 
-            subButtons.style.display = subButtons.style.display === 'none' || subButtons.style.display === '' ? 'block' : 'none';
+            if (subButtons.style.display === 'none' || subButtons.style.display === '') {
+                subButtons.style.display = 'block';
+                subButtons.style.animation = 'fadeIn 0.5s ease-out';
+            } else {
+                subButtons.style.animation = 'fadeOut 0.5s ease-out';
+                setTimeout(() => subButtons.style.display = 'none', 500);
+            }
         }
 
-        function handleClick(button, url) {
-            button.disabled = true;
+        // Musique et popup donation
+        function playMusic() {
+            var music = document.getElementById('background-music');
+            var donatePopup = document.getElementById('donate-popup');
+            music.play();
+            donatePopup.style.display = 'block';
+
             setTimeout(function() {
-                window.location.href = url;
+                donatePopup.classList.add('fade-out');
             }, 5000);
         }
 
-        // Transition from "Welcome to DARK TECH" to just "DARK TECH"
-        setTimeout(function() {
-            document.getElementById('welcome-text').style.animation = 'fadeOut 2s ease forwards';
-            setTimeout(function() {
-                document.getElementById('welcome-text').style.display = 'none';
-                document.getElementById('dark-tech-text').style.display = 'block';
-            }, 2000);
-        }, 3000); // Change text after 3 seconds
+        window.onload = function() {
+            document.getElementById('music-section').style.display = 'block';
+        };
     </script>
 </body>
 </html>
